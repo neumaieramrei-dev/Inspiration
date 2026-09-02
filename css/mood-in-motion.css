@@ -1953,3 +1953,26 @@ a {
         font-size: 9px;
     }
 }
+.read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 28px;
+    padding-bottom: 5px;
+
+    color: var(--ink);
+    text-decoration: none;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+
+    border-bottom: 1px solid var(--ink);
+
+    transition: opacity .2s ease;
+}
+
+.read-more:hover {
+    opacity: .55;
+}
