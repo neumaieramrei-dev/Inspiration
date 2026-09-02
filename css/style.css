@@ -1,0 +1,2453 @@
+/* =========================================================
+
+   RESET
+
+========================================================= */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+body {
+
+    background: #eee2c3;
+
+    color: #080808;
+
+    font-family: "Century Gothic", "Avenir Next", Arial, sans-serif;
+
+    overflow-x: hidden;
+
+}
+
+body.modal-open {
+
+    overflow: hidden;
+
+}
+
+a {
+
+    color: inherit;
+
+    text-decoration: none;
+
+}
+
+button,
+
+input {
+
+    font: inherit;
+
+}
+
+
+
+/* =========================================================
+
+   COLOURS
+
+========================================================= */
+
+:root {
+
+    --cream: #eee2c3;
+
+    --orange: #f4a51c;
+
+    --red: #ed3d2d;
+
+    --green: #3f874f;
+
+    --blue: #555b91;
+
+    --black: #080808;
+
+}
+
+
+
+/* =========================================================
+
+   NAVIGATION
+
+========================================================= */
+
+.navbar {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 105px;
+
+    padding: 0 4.5vw;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    z-index: 100;
+
+    background: var(--cream);
+
+    border-bottom: 2px solid var(--black);
+
+}
+
+
+
+/* LEFT — GALLERY23 */
+
+.nav-logo {
+
+    font-size: 27px;
+
+    font-weight: 900;
+
+    letter-spacing: -1.5px;
+
+    transition: transform 0.3s ease;
+
+}
+
+.nav-logo:hover {
+
+    transform: rotate(-2deg) scale(1.04);
+
+}
+
+
+
+/* RIGHT — NAVIGATION */
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 55px;
+
+}
+
+.nav-links a {
+
+    position: relative;
+
+    font-size: 18px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    color: var(--black);
+
+    transition:
+
+        transform 0.25s ease,
+
+        opacity 0.25s ease;
+
+}
+
+.nav-links a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -8px;
+
+    width: 0;
+
+    height: 2px;
+
+    background: var(--black);
+
+    transition: width 0.3s ease;
+
+}
+
+.nav-links a:hover::after {
+
+    width: 100%;
+
+}
+
+.nav-links a:hover {
+
+    transform: translateY(-2px);
+
+}
+
+
+
+/* =========================================================
+
+   HERO
+
+========================================================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    padding-top: 105px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+
+/* MAIN TITLE */
+
+.hero-title {
+
+    position: relative;
+
+    z-index: 10;
+
+    width: 100%;
+
+    text-align: center;
+
+}
+
+.hero-title h1 {
+
+    position: relative;
+
+    z-index: 10;
+
+    font-size: clamp(110px, 18vw, 300px);
+
+    line-height: 0.8;
+
+    letter-spacing: -12px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+}
+
+/* ---------------------------------------------------------
+
+   HERO MESSAGE
+
+--------------------------------------------------------- */
+
+.hero-message {
+
+    position: relative;
+
+    z-index: 15;
+
+    width: fit-content;
+
+    margin: 55px auto 0;
+
+    text-align: center;
+
+}
+
+.hero-message p:first-child {
+
+    margin-bottom: 16px;
+
+    font-size: 14px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+}
+
+.hero-message p:last-child {
+
+    font-size: 16px;
+
+    line-height: 1.45;
+
+    font-weight: 700;
+
+}
+
+
+
+/* ---------------------------------------------------------
+
+   HERO SHAPE MOVEMENT
+
+   Only the colored shapes move.
+
+   Black geometric lines stay completely static.
+
+--------------------------------------------------------- */
+
+.orange-circle {
+
+    animation: heroCircle 7s ease-in-out infinite;
+
+}
+
+.orange-block {
+
+    animation: heroBlock 8s ease-in-out 0.5s infinite;
+
+}
+
+.green-circle {
+
+    animation: heroSmallCircle 5s ease-in-out 0.8s infinite;
+
+}
+
+.blue-block {
+
+    animation: heroBlueBlock 9s ease-in-out 0.2s infinite;
+
+}
+
+@keyframes heroCircle {
+
+    0%, 100% {
+
+        transform: translate(0, 0) scale(1);
+
+    }
+
+    50% {
+
+        transform: translate(18px, -12px) scale(1.04);
+
+    }
+
+}
+
+@keyframes heroBlock {
+
+    0%, 100% {
+
+        transform: translate(0, 0) rotate(0deg);
+
+    }
+
+    50% {
+
+        transform: translate(-8px, 13px) rotate(-1.5deg);
+
+    }
+
+}
+
+@keyframes heroSmallCircle {
+
+    0%, 100% {
+
+        transform: translate(0, 0) scale(1);
+
+    }
+
+    50% {
+
+        transform: translate(-10px, 8px) scale(1.13);
+
+    }
+
+}
+
+@keyframes heroBlueBlock {
+
+    0%, 100% {
+
+        transform: translate(0, 0);
+
+    }
+
+    50% {
+
+        transform: translate(12px, -7px);
+
+    }
+
+}
+
+/* =========================================================
+
+   HERO SHAPES
+
+========================================================= */
+
+.hero-shape {
+
+    position: absolute;
+
+}
+
+
+
+/* RED / ORANGE CIRCLE */
+
+.orange-circle {
+
+    width: 250px;
+
+    height: 250px;
+
+    border-radius: 50%;
+
+    background: var(--red);
+
+    left: 20%;
+
+    top: 22%;
+
+    border: 6px solid rgba(255, 255, 255, 0.18);
+
+    z-index: 1;
+
+}
+
+
+
+/* ORANGE RECTANGLE */
+
+.orange-block {
+
+    width: 190px;
+
+    height: 255px;
+
+    background: var(--orange);
+
+    left: 16%;
+
+    top: 40%;
+
+    z-index: 0;
+
+}
+
+
+
+/* GREEN CIRCLE */
+
+.green-circle {
+
+    width: 90px;
+
+    height: 90px;
+
+    border-radius: 50%;
+
+    background: var(--green);
+
+    right: 25%;
+
+    top: 36%;
+
+    z-index: 2;
+
+}
+
+
+
+/* BLUE RECTANGLE */
+
+.blue-block {
+
+    width: 530px;
+
+    height: 115px;
+
+    background: var(--blue);
+
+    right: 20%;
+
+    bottom: 28%;
+
+    z-index: 0;
+
+}
+
+
+
+/* =========================================================
+
+   BLACK GEOMETRIC LINES
+
+========================================================= */
+
+.hero-line {
+
+    position: absolute;
+
+    height: 28px;
+
+    background: var(--black);
+
+    border-radius: 0;
+
+    z-index: 5;
+
+}
+
+
+
+/* LEFT HORIZONTAL LINE */
+
+.line-left {
+
+    width: 250px;
+
+    left: 2%;
+
+    top: 80%;
+
+    transform: none;
+
+}
+
+
+
+/* RIGHT HORIZONTAL LINE */
+
+.line-right {
+
+    width: 250px;
+
+    right: 2%;
+
+    top: 9%;
+
+    transform: none;
+
+}
+
+
+
+/* RIGHT VERTICAL LINE */
+
+.line-right::after {
+
+    content: "";
+
+    position: absolute;
+
+    right: 0;
+
+    top: 0;
+
+    width: 18px;
+
+    height: 400px;
+
+    background: var(--black);
+
+}
+
+
+
+/* =========================================================
+
+   GENERAL SECTIONS
+
+========================================================= */
+
+section {
+
+    position: relative;
+
+}
+
+
+
+/* =========================================================
+
+   THE IDEA
+
+========================================================= */
+
+.idea-section {
+
+    padding: 150px 7vw 190px;
+
+}
+
+
+
+/* SECTION NUMBER + TITLE */
+
+.section-label {
+
+    display: flex;
+
+    gap: 15px;
+
+    font-size: 14px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 75px;
+
+}
+
+.section-label span:first-child {
+
+    opacity: 0.45;
+
+}
+
+
+
+/* IDEA GRID */
+
+.idea-grid {
+
+    display: grid;
+
+    grid-template-columns: 42% 58%;
+
+    gap: 5vw;
+
+}
+
+
+
+/* LEFT SIDE */
+
+.idea-heading {
+
+    position: relative;
+
+}
+
+.idea-heading h2 {
+
+    font-size: clamp(50px, 6vw, 90px);
+
+    line-height: 0.95;
+
+    letter-spacing: -4px;
+
+}
+
+
+
+/* HANDWRITTEN NOTE */
+
+.idea-manifesto {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+    margin-top: 90px;
+
+    width: fit-content;
+
+    font-family: cursive;
+
+    font-size: 25px;
+
+    line-height: 1.05;
+
+    transform: rotate(-5deg);
+
+}
+
+.idea-manifesto span:last-child {
+
+    margin-left: 28px;
+
+    color: var(--red);
+
+}
+
+
+
+/* RIGHT SIDE */
+
+.idea-text {
+
+    max-width: 720px;
+
+}
+
+
+
+/* INTRO */
+
+.intro-text {
+
+    font-size: 28px;
+
+    line-height: 1.3;
+
+    font-weight: 700;
+
+    margin-bottom: 90px;
+
+}
+
+/* ---------------------------------------------------------
+
+   NEW IDEA CONTENT
+
+--------------------------------------------------------- */
+
+.inspiration-list {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px 12px;
+
+    margin: 30px 0 28px;
+
+}
+
+.inspiration-list span {
+
+    padding: 10px 14px;
+
+    background: var(--orange);
+
+    font-size: 14px;
+
+    font-weight: 900;
+
+    transition:
+
+        transform 0.25s ease,
+
+background 0.25s ease;
+
+}
+
+.inspiration-list span:nth-child(2) {
+
+    background: var(--red);
+
+    transform: rotate(2deg);
+
+}
+
+.inspiration-list span:nth-child(3) {
+
+    background: var(--green);
+
+    color: var(--cream);
+
+    transform: rotate(-2deg);
+
+}
+
+.inspiration-list span:nth-child(4) {
+
+    background: var(--blue);
+
+    color: var(--cream);
+
+    transform: rotate(1deg);
+
+}
+
+.inspiration-list span:nth-child(5) {
+
+    background: var(--orange);
+
+    transform: rotate(-1deg);
+
+}
+
+.inspiration-list span:nth-child(6) {
+
+    background: var(--red);
+
+    transform: rotate(2deg);
+
+}
+
+.inspiration-list span:hover {
+
+    transform: translateY(-5px) rotate(0deg) scale(1.04);
+
+}
+
+.idea-less-more {
+
+    padding-bottom: 45px;
+
+}
+
+.less-more-line {
+
+    display: flex;
+
+    align-items: baseline;
+
+    justify-content: space-between;
+
+    gap: 25px;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid rgba(8, 8, 8, 0.2);
+
+    font-size: 17px;
+
+    line-height: 1.25;
+
+}
+
+.less-more-line strong {
+
+    font-size: 19px;
+
+}
+
+.less-more-line:nth-child(2) strong {
+
+    color: var(--red);
+
+}
+
+.less-more-line:nth-child(3) strong {
+
+    color: var(--green);
+
+}
+
+.less-more-line:nth-child(4) strong {
+
+    color: var(--blue);
+
+}
+
+.idea-closing {
+
+    padding-top: 25px;
+
+}
+
+.idea-closing p {
+
+    margin-bottom: 8px;
+
+}
+
+.idea-closing .closing-emphasis {
+
+    display: inline-block;
+
+    margin-top: 12px;
+
+    padding: 10px 15px;
+
+    background: var(--orange);
+
+    font-size: 22px;
+
+    font-weight: 900;
+
+    line-height: 1.2;
+
+    transform: rotate(-1.5deg);
+
+}
+
+.practice-intro {
+
+    margin-top: -20px;
+
+    margin-bottom: 25px;
+
+    font-size: 16px;
+
+    line-height: 1.4;
+
+    font-weight: 700;
+
+}
+
+
+
+
+
+/* INDIVIDUAL IDEA BLOCKS */
+
+.idea-block {
+
+    border-top: 3px solid var(--black);
+
+    padding: 30px 0 55px;
+
+}
+
+.idea-block h3 {
+
+    font-size: 27px;
+
+    margin-bottom: 22px;
+
+    text-transform: lowercase;
+
+}
+
+.idea-block p {
+
+    font-size: 18px;
+
+    line-height: 1.55;
+
+    max-width: 620px;
+
+    margin-bottom: 15px;
+
+}
+
+
+
+/* HIGHLIGHT */
+
+.idea-highlight {
+
+    display: inline-block;
+
+    margin-top: 15px;
+
+    padding: 9px 15px;
+
+    background: var(--orange);
+
+    font-size: 14px;
+
+    font-weight: 900;
+
+    transform: rotate(-2deg);
+
+}
+
+
+
+/* PINTEREST NOTE */
+
+.problem-note {
+
+    display: inline-block;
+
+    margin-top: 20px;
+
+    background: var(--red);
+
+    padding: 14px 25px;
+
+    border-radius: 100px;
+
+    font-weight: 900;
+
+    transform: rotate(2deg);
+
+}
+
+
+
+/* =========================================================
+
+   INSPIRATIONAL PRACTICE
+
+========================================================= */
+
+.practice-section {
+
+    min-height: 100vh;
+
+    padding: 120px 5vw 160px;
+
+    background: var(--cream);
+
+    overflow: hidden;
+
+}
+
+
+
+/* HEADER */
+
+.practice-header {
+
+    display: grid;
+
+    grid-template-columns: 45% 55%;
+
+    align-items: start;
+
+}
+
+
+
+/* RIGHT SIDE */
+
+.practice-question {
+
+    padding-top: 5px;
+
+}
+
+
+
+/* THREE DOTS */
+
+.dots {
+
+    font-size: 65px;
+
+    letter-spacing: 15px;
+
+    line-height: 0.3;
+
+}
+
+
+
+/* QUESTION */
+
+.practice-question h2 {
+
+    font-size: clamp(45px, 5vw, 78px);
+
+    line-height: 0.9;
+
+    letter-spacing: -3px;
+
+    margin: 30px 0 40px;
+
+}
+
+
+
+/* =========================================================
+
+   SEARCH BAR
+
+========================================================= */
+
+.search-bar {
+
+    width: 90%;
+
+    height: 75px;
+
+    border: 3px solid var(--black);
+
+    border-radius: 100px;
+
+    background: var(--red);
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 30px;
+
+}
+
+
+
+.search-icon {
+
+    font-size: 27px;
+
+    font-family: serif;
+
+}
+
+
+
+.search-bar input {
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    width: 100%;
+
+    margin-left: 15px;
+
+    font-size: 20px;
+
+}
+
+
+
+/* =========================================================
+
+   CARD AREA
+
+========================================================= */
+
+.card-area {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 650px;
+
+    margin-top: 100px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+
+
+/* =========================================================
+
+   INDIVIDUAL CARDS
+
+========================================================= */
+
+.practice-card {
+
+    width: 300px;
+
+    height: 455px;
+
+    position: absolute;
+
+    border: 5px solid var(--black);
+
+    cursor: pointer;
+
+    transition:
+
+        transform 0.5s cubic-bezier(.2, .8, .2, 1),
+
+        box-shadow 0.3s ease;
+
+    overflow: hidden;
+
+}
+
+
+
+/* HOVER */
+
+.practice-card:hover {
+
+    z-index: 20;
+
+    box-shadow: 15px 15px 0 var(--black);
+
+}
+
+
+
+/* ORANGE */
+
+.card-orange {
+
+    background: var(--orange);
+
+    transform:
+
+        translateX(-320px)
+
+        rotate(-4deg);
+
+}
+
+
+
+/* GREEN */
+
+.card-green {
+
+    background: var(--green);
+
+    transform:
+
+        translateX(0)
+
+        rotate(2deg);
+
+    z-index: 3;
+
+}
+
+
+
+/* BLUE */
+
+.card-blue {
+
+    background: var(--blue);
+
+    transform:
+
+        translateX(320px)
+
+        rotate(5deg);
+
+    z-index: 2;
+
+}
+
+
+
+/* HOVER POSITIONS */
+
+.practice-card:hover.card-orange {
+
+    transform:
+
+        translateX(-320px)
+
+        rotate(-7deg)
+
+        translateY(-15px);
+
+}
+
+.practice-card:hover.card-green {
+
+    transform:
+
+        translateY(-15px)
+
+        rotate(4deg);
+
+}
+
+.practice-card:hover.card-blue {
+
+    transform:
+
+        translateX(320px)
+
+        rotate(9deg)
+
+        translateY(-15px);
+
+}
+
+
+
+/* =========================================================
+
+   CARD TEXT
+
+========================================================= */
+
+.card-number {
+
+    position: absolute;
+
+    top: 18px;
+
+    left: 20px;
+
+    font-size: 14px;
+
+    font-weight: 900;
+
+    z-index: 5;
+
+}
+
+
+
+.card-title {
+
+    position: absolute;
+
+    bottom: 25px;
+
+    left: 25px;
+
+    font-size: 30px;
+
+    font-weight: 900;
+
+    z-index: 5;
+
+    letter-spacing: -1px;
+
+}
+
+
+
+.card-arrow {
+
+    position: absolute;
+
+    right: 20px;
+
+    bottom: 18px;
+
+    font-size: 30px;
+
+    z-index: 5;
+
+}
+
+
+
+/* =========================================================
+
+   CARD ART — MOOD IN MOTION
+
+========================================================= */
+
+.card-art {
+
+    position: absolute;
+
+    inset: 55px 20px 90px;
+
+}
+
+
+
+.wave {
+
+    position: absolute;
+
+    width: 170%;
+
+    height: 80px;
+
+    border: 15px solid var(--red);
+
+    border-radius: 50%;
+
+    left: -35%;
+
+}
+
+
+
+.wave-1 {
+
+    top: 25%;
+
+}
+
+.wave-2 {
+
+    top: 45%;
+
+}
+
+.wave-3 {
+
+    top: 65%;
+
+}
+
+
+
+/* =========================================================
+
+   CARD ART — SOUNDSCAPE
+
+========================================================= */
+
+.card-green .card-art {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+
+
+.green-arc {
+
+    position: absolute;
+
+    width: 250px;
+
+    height: 250px;
+
+    border-radius: 50% 50% 0 0;
+
+    border: 25px solid rgba(238, 226, 195, 0.55);
+
+    border-bottom: none;
+
+    bottom: -50px;
+
+}
+
+
+
+.arc-one {
+
+    transform: scale(0.55);
+
+}
+
+.arc-two {
+
+    transform: scale(0.78);
+
+}
+
+.arc-three {
+
+    transform: scale(1);
+
+}
+
+
+
+/* =========================================================
+
+   CARD ART — RAW EXPERIENCE
+
+========================================================= */
+
+.card-blue .card-art {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+
+
+.raw-circle {
+
+    position: absolute;
+
+    border: 12px solid var(--cream);
+
+    border-radius: 50%;
+
+}
+
+
+
+.circle-one {
+
+    width: 260px;
+
+    height: 260px;
+
+}
+
+.circle-two {
+
+    width: 175px;
+
+    height: 175px;
+
+}
+
+.circle-three {
+
+    width: 90px;
+
+    height: 90px;
+
+}
+
+
+
+/* =========================================================
+
+   CARD INSTRUCTION
+
+========================================================= */
+
+.card-instruction {
+
+    text-align: center;
+
+    font-size: 14px;
+
+    font-weight: 900;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+}
+
+
+
+/* =========================================================
+
+   MODAL
+
+========================================================= */
+
+.card-modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(238, 226, 195, 0.96);
+
+    z-index: 500;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: opacity 0.4s ease;
+
+}
+
+
+
+.card-modal.active {
+
+    opacity: 1;
+
+    pointer-events: all;
+
+}
+
+
+
+/* CLOSE */
+
+.modal-close {
+
+    position: absolute;
+
+    top: 35px;
+
+    right: 45px;
+
+    background: none;
+
+    border: none;
+
+    font-size: 55px;
+
+    cursor: pointer;
+
+    line-height: 1;
+
+}
+
+
+
+/* =========================================================
+
+   MODAL CARD
+
+========================================================= */
+
+.modal-card-wrapper {
+
+    width: min(430px, 80vw);
+
+    height: min(620px, 65vh);
+
+    perspective: 1200px;
+
+}
+
+
+
+.modal-card {
+
+    width: 100%;
+
+    height: 100%;
+
+    position: relative;
+
+    transform-style: preserve-3d;
+
+    transition:
+
+        transform 0.8s cubic-bezier(.2, .8, .2, 1);
+
+}
+
+
+
+.modal-card.flipped {
+
+    transform: rotateY(180deg);
+
+}
+
+
+
+/* FRONT + BACK */
+
+.modal-front,
+
+.modal-back {
+
+    position: absolute;
+
+    inset: 0;
+
+    backface-visibility: hidden;
+
+    border: 6px solid var(--black);
+
+    overflow: hidden;
+
+}
+
+
+
+/* FRONT */
+
+.modal-front {
+
+    background: var(--orange);
+
+}
+
+
+
+/* BACK */
+
+.modal-back {
+
+    background: var(--green);
+
+    transform: rotateY(180deg);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 45px;
+
+    text-align: center;
+
+}
+
+
+
+/* BACK TEXT */
+
+.modal-back p {
+
+    font-size: 22px;
+
+    line-height: 1.35;
+
+    font-weight: 700;
+
+    margin: 30px 0;
+
+}
+
+
+
+.modal-back span {
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+}
+
+
+
+/* NUMBER */
+
+.modal-card-number {
+
+    position: absolute;
+
+    top: 25px;
+
+    left: 25px;
+
+    font-size: 15px;
+
+    font-weight: 900;
+
+    z-index: 5;
+
+}
+
+
+
+/* TITLE */
+
+.modal-front h2 {
+
+    position: absolute;
+
+    bottom: 30px;
+
+    left: 30px;
+
+    font-size: 40px;
+
+    letter-spacing: -2px;
+
+    z-index: 5;
+
+}
+
+
+
+/* ART */
+
+.modal-art {
+
+    position: absolute;
+
+    inset: 70px 25px 100px;
+
+}
+
+
+
+/* BACK LABEL */
+
+.back-label {
+
+    font-size: 13px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+}
+
+
+
+/* =========================================================
+
+   FLIP + PRACTICE BUTTON
+
+========================================================= */
+
+.flip-button,
+
+.practice-button {
+
+    border: none;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+    margin-top: 25px;
+
+    padding: 15px 25px;
+
+}
+
+
+
+/* FLIP */
+
+.flip-button {
+
+    background: var(--black);
+
+    color: var(--cream);
+
+}
+
+
+
+/* PRACTICE */
+
+.practice-button {
+
+    background: var(--red);
+
+    border-radius: 100px;
+
+}
+
+
+
+/* HOVER */
+
+.flip-button:hover {
+
+    transform: rotate(-2deg);
+
+}
+
+.practice-button:hover {
+
+    transform: rotate(2deg);
+
+}
+
+
+
+/* =========================================================
+
+   FOOTER
+
+========================================================= */
+
+footer {
+
+    min-height: 350px;
+
+    padding: 70px 5vw;
+
+    background: var(--black);
+
+    color: var(--cream);
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+
+    align-items: end;
+
+}
+
+
+
+.footer-logo {
+
+    font-size: 30px;
+
+    font-weight: 900;
+
+}
+
+
+
+.footer-text {
+
+    font-size: 15px;
+
+    line-height: 1.5;
+
+}
+
+
+
+.footer-number {
+
+    text-align: right;
+
+    font-size: 170px;
+
+    line-height: 0.65;
+
+    color: var(--red);
+
+}
+
+
+
+/* =========================================================
+
+   TABLET
+
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .hero-message {
+
+        margin-top: 42px;
+
+    }
+
+    .hero-message p:first-child {
+
+        font-size: 11px;
+
+        letter-spacing: 1.7px;
+
+    }
+
+    .hero-message p:last-child {
+
+        font-size: 15px;
+
+    }
+
+    .less-more-line {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 5px;
+
+    }
+
+    .idea-manifesto {
+
+        margin-top: 55px;
+
+    }
+
+    .practice-intro {
+
+        margin-top: -10px;
+
+    }
+
+    .navbar {
+
+        padding: 0 25px;
+
+    }
+
+
+
+    .nav-links {
+
+        gap: 25px;
+
+    }
+
+
+
+    .nav-links a {
+
+        font-size: 13px;
+
+    }
+
+
+
+    .hero-title h1 {
+
+        font-size: 18vw;
+
+        letter-spacing: -6px;
+
+    }
+
+
+
+    .orange-circle {
+
+        width: 170px;
+
+        height: 170px;
+
+        left: 10%;
+
+    }
+
+
+
+    .orange-block {
+
+        width: 130px;
+
+        height: 190px;
+
+        left: 8%;
+
+    }
+
+
+
+    .blue-block {
+
+        width: 300px;
+
+        height: 80px;
+
+        right: 10%;
+
+    }
+
+
+
+    .idea-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+
+    .idea-heading {
+
+        margin-bottom: 70px;
+
+    }
+
+
+
+    .practice-header {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+
+    .practice-question {
+
+        margin-top: 30px;
+
+    }
+
+
+
+    .card-area {
+
+        height: 560px;
+
+    }
+
+
+
+    .practice-card {
+
+        width: 240px;
+
+        height: 370px;
+
+    }
+
+
+
+    .card-orange {
+
+        transform:
+
+            translateX(-120px)
+
+            rotate(-5deg);
+
+    }
+
+
+
+    .card-green {
+
+        transform:
+
+            translateX(0)
+
+            rotate(2deg);
+
+    }
+
+
+
+    .card-blue {
+
+        transform:
+
+            translateX(120px)
+
+            rotate(5deg);
+
+    }
+
+
+
+    footer {
+
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+
+    }
+
+
+
+    .footer-number {
+
+        text-align: left;
+
+    }
+
+}
+
+
+
+/* =========================================================
+
+   MOBILE
+
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .navbar {
+
+        height: 85px;
+
+        padding: 0 20px;
+
+    }
+
+
+
+    .nav-logo {
+
+        font-size: 20px;
+
+    }
+
+
+
+    .nav-links {
+
+        gap: 12px;
+
+    }
+
+
+
+    .nav-links a {
+
+        font-size: 9px;
+
+        letter-spacing: 0.8px;
+
+    }
+
+
+
+    .hero {
+
+        min-height: 80vh;
+
+        padding-top: 85px;
+
+    }
+
+
+
+    .hero-title h1 {
+
+        font-size: 17vw;
+
+        letter-spacing: -4px;
+
+    }
+
+    .hero-message {
+
+        margin-top: 32px;
+
+    }
+
+    .hero-message p:first-child {
+
+        margin-bottom: 10px;
+
+        font-size: 8px;
+
+        letter-spacing: 1.2px;
+
+    }
+
+    .hero-message p:last-child {
+
+        font-size: 11px;
+
+    }
+
+    .idea-manifesto {
+
+        font-size: 20px;
+
+    }
+
+    .inspiration-list {
+
+        gap: 7px;
+
+    }
+
+    .inspiration-list span {
+
+        padding: 8px 10px;
+
+        font-size: 11px;
+
+    }
+
+    .idea-closing .closing-emphasis {
+
+        font-size: 18px;
+
+    }
+
+
+
+    .orange-circle {
+
+        width: 130px;
+
+        height: 130px;
+
+        left: 8%;
+
+    }
+
+
+
+    .orange-block {
+
+        width: 100px;
+
+        height: 160px;
+
+        left: 5%;
+
+    }
+
+
+
+    .blue-block {
+
+        width: 220px;
+
+        height: 65px;
+
+        right: 5%;
+
+    }
+
+
+
+    .green-circle {
+
+        width: 60px;
+
+        height: 60px;
+
+        right: 15%;
+
+    }
+
+
+
+    .line-left {
+
+        width: 130px;
+
+        left: -8%;
+
+        top: 82%;
+
+    }
+
+
+
+    .line-right {
+
+        width: 130px;
+
+        right: -8%;
+
+        top: 10%;
+
+    }
+
+
+
+    .idea-section,
+
+    .practice-section {
+
+        padding-left: 25px;
+
+        padding-right: 25px;
+
+    }
+
+
+
+    .idea-heading h2 {
+
+        font-size: 48px;
+
+    }
+
+
+
+    .practice-question h2 {
+
+        font-size: 45px;
+
+    }
+
+
+
+    .search-bar {
+
+        width: 100%;
+
+    }
+
+
+
+    .card-area {
+
+        height: 500px;
+
+    }
+
+
+
+    .practice-card {
+
+        width: 210px;
+
+        height: 330px;
+
+    }
+
+
+
+    .card-orange {
+
+        transform:
+
+            translateX(-55px)
+
+            rotate(-7deg);
+
+    }
+
+
+
+    .card-blue {
+
+        transform:
+
+            translateX(55px)
+
+            rotate(7deg);
+
+    }
+
+
+
+    .practice-card:hover.card-orange {
+
+        transform:
+
+            translateX(-55px)
+
+            rotate(-9deg)
+
+            translateY(-10px);
+
+    }
+
+
+
+    .practice-card:hover.card-blue {
+
+        transform:
+
+            translateX(55px)
+
+            rotate(9deg)
+
+            translateY(-10px);
+
+    }
+
+
+
+    footer {
+
+        padding: 55px 25px;
+
+    }
+
+
+
+    .footer-number {
+
+        font-size: 110px;
+
+    }
+
+}
