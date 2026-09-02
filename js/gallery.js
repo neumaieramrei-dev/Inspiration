@@ -10,28 +10,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const modalNumber = document.getElementById("modalNumber");
     const modalTitle = document.getElementById("modalTitle");
+    const modalArt = document.getElementById("modalArt");
+
     const modalLabel = document.getElementById("modalLabel");
     const modalDescription = document.getElementById("modalDescription");
 
     const practiceButton = document.getElementById("practiceButton");
 
 
-    /* OPEN CARD */
+    /* =====================================================
+       OPEN CARD
+    ====================================================== */
 
     cards.forEach(card => {
 
         card.addEventListener("click", () => {
 
-            modalNumber.textContent = card.dataset.number;
-            modalTitle.textContent = card.dataset.title;
-            modalLabel.textContent = card.dataset.label;
-            modalDescription.textContent = card.dataset.description;
+            const number = card.dataset.number;
+            const title = card.dataset.title;
+            const label = card.dataset.label;
+            const description = card.dataset.description;
+            const page = card.dataset.page;
 
-            practiceButton.href = card.dataset.page;
+            modalNumber.textContent = number;
+            modalTitle.textContent = title;
+
+            modalLabel.textContent = label;
+            modalDescription.textContent = description;
+
+            modalArt.innerHTML =
+                card.querySelector(".card-art").innerHTML;
+
+            /*
+             * The cards are inside index.html,
+             * while the exercises are inside /pages/
+             */
+
+            practiceButton.href = "pages/" + page;
 
             modalCard.classList.remove("flipped");
 
-            modal.classList.add("open");
+            modal.classList.add("active");
 
             document.body.classList.add("modal-open");
 
@@ -40,7 +59,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /* FLIP */
+    /* =====================================================
+       FLIP CARD
+    ====================================================== */
 
     flipButton.addEventListener("click", () => {
 
@@ -49,44 +70,48 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /* CLOSE */
+    /* =====================================================
+       CLOSE
+    ====================================================== */
 
-    modalClose.addEventListener("click", () => {
+    function closeModal() {
 
-        modal.classList.remove("open");
+        modal.classList.remove("active");
+
         modalCard.classList.remove("flipped");
 
         document.body.classList.remove("modal-open");
 
-    });
+    }
 
 
-    /* CLOSE OUTSIDE */
+    modalClose.addEventListener("click", closeModal);
+
+
+    /* =====================================================
+       CLOSE WHEN CLICKING OUTSIDE
+    ====================================================== */
 
     modal.addEventListener("click", (event) => {
 
         if (event.target === modal) {
 
-            modal.classList.remove("open");
-            modalCard.classList.remove("flipped");
-
-            document.body.classList.remove("modal-open");
+            closeModal();
 
         }
 
     });
 
 
-    /* ESC */
+    /* =====================================================
+       ESC KEY
+    ====================================================== */
 
     document.addEventListener("keydown", (event) => {
 
         if (event.key === "Escape") {
 
-            modal.classList.remove("open");
-            modalCard.classList.remove("flipped");
-
-            document.body.classList.remove("modal-open");
+            closeModal();
 
         }
 

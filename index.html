@@ -2,15 +2,17 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Inspiration — Gallery23</title>
 
     <link rel="stylesheet" href="css/style.css">
-</head>
 
-<script src="js/gallery.js"></script>
+    <script src="js/gallery.js" defer></script>
+
+</head>
 
 <body>
 
@@ -238,7 +240,7 @@
 
 
 
-           <!-- =================================================
+<!-- =================================================
      CARD STACK
 ================================================== -->
 
@@ -356,11 +358,6 @@
 </div>
 
 
-
-<!-- =====================================================
-     CARD MODAL
-====================================================== -->
-
 <!-- =====================================================
      CARD MODAL
 ====================================================== -->
@@ -449,9 +446,12 @@
 
 
 
+</main>
+
+
 <!-- =====================================================
      FOOTER
-====================================================== -->
+===================================================== -->
 
 <footer>
 
@@ -469,110 +469,6 @@
     </div>
 
 </footer>
-
-
-
-    <!-- =====================================================
-         INTERACTION
-    ====================================================== -->
-
-    <script>
-
-        const cards = document.querySelectorAll(".practice-card");
-
-        const modal = document.getElementById("cardModal");
-
-        const modalCard = document.getElementById("modalCard");
-
-        const modalTitle = document.getElementById("modalTitle");
-
-        const modalNumber = document.getElementById("modalNumber");
-
-        const modalArt = document.getElementById("modalArt");
-
-        const flipButton = document.getElementById("flipButton");
-
-        const closeButton = document.getElementById("modalClose");
-
-        const practiceButton = document.getElementById("practiceButton");
-
-
-        cards.forEach((card) => {
-
-            card.addEventListener("click", () => {
-
-                const title =
-                    card.querySelector(".card-title").textContent.trim();
-
-                const number =
-                    card.querySelector(".card-number").textContent.trim();
-
-                const page =
-                    card.dataset.page;
-
-
-                modalTitle.textContent = title;
-
-                modalNumber.textContent = number;
-
-                modalArt.innerHTML =
-                    card.querySelector(".card-art").innerHTML;
-
-
-                practiceButton.href = "pages/" + page;
-
-
-                modal.classList.add("active");
-
-                document.body.classList.add("modal-open");
-
-                modalCard.classList.remove("flipped");
-
-            });
-
-        });
-
-
-        flipButton.addEventListener("click", () => {
-
-            modalCard.classList.toggle("flipped");
-
-        });
-
-
-        closeButton.addEventListener("click", closeModal);
-
-
-        modal.addEventListener("click", (event) => {
-
-            if (event.target === modal) {
-                closeModal();
-            }
-
-        });
-
-
-        function closeModal() {
-
-            modal.classList.remove("active");
-
-            document.body.classList.remove("modal-open");
-
-            modalCard.classList.remove("flipped");
-
-        }
-
-
-        document.addEventListener("keydown", (event) => {
-
-            if (event.key === "Escape") {
-                closeModal();
-            }
-
-        });
-
-    </script>
-
 </body>
 
 </html>

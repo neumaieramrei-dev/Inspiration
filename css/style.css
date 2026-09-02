@@ -1861,69 +1861,62 @@ background 0.25s ease;
 
 
 /* =========================================================
-
    FOOTER
-
 ========================================================= */
 
 footer {
 
-    min-height: 350px;
+    width: 100vw;
 
-    padding: 70px 5vw;
+    margin-left: calc(50% - 50vw);
+
+    min-height: 0;
+
+    padding: 28px 5vw;
 
     background: var(--black);
-
     color: var(--cream);
 
     display: grid;
+    grid-template-columns: 1fr auto 1fr;
 
-    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
 
-    align-items: end;
+    box-sizing: border-box;
 
 }
-
 
 
 .footer-logo {
 
     font-size: 30px;
-
     font-weight: 900;
 
 }
 
 
-
 .footer-text {
 
-    font-size: 15px;
-
-    line-height: 1.5;
+    font-size: 14px;
+    line-height: 1.35;
 
 }
-
 
 
 .footer-number {
 
     text-align: right;
 
-    font-size: 170px;
-
-    line-height: 0.65;
+    font-size: 90px;
+    line-height: 0.7;
 
     color: var(--red);
 
 }
 
 
-
 /* =========================================================
-
    TABLET
-
 ========================================================= */
 
 @media (max-width: 900px) {
@@ -1937,7 +1930,6 @@ footer {
     .hero-message p:first-child {
 
         font-size: 11px;
-
         letter-spacing: 1.7px;
 
     }
@@ -1951,9 +1943,7 @@ footer {
     .less-more-line {
 
         align-items: flex-start;
-
         flex-direction: column;
-
         gap: 5px;
 
     }
@@ -1976,15 +1966,11 @@ footer {
 
     }
 
-
-
     .nav-links {
 
         gap: 25px;
 
     }
-
-
 
     .nav-links a {
 
@@ -1992,53 +1978,36 @@ footer {
 
     }
 
-
-
     .hero-title h1 {
 
         font-size: 18vw;
-
         letter-spacing: -6px;
 
     }
 
-
-
     .orange-circle {
 
         width: 170px;
-
         height: 170px;
-
         left: 10%;
 
     }
 
-
-
     .orange-block {
 
         width: 130px;
-
         height: 190px;
-
         left: 8%;
 
     }
 
-
-
     .blue-block {
 
         width: 300px;
-
         height: 80px;
-
         right: 10%;
 
     }
-
-
 
     .idea-grid {
 
@@ -2046,15 +2015,11 @@ footer {
 
     }
 
-
-
     .idea-heading {
 
         margin-bottom: 70px;
 
     }
-
-
 
     .practice-header {
 
@@ -2062,15 +2027,11 @@ footer {
 
     }
 
-
-
     .practice-question {
 
         margin-top: 30px;
 
     }
-
-
 
     .card-area {
 
@@ -2078,78 +2039,70 @@ footer {
 
     }
 
-
-
     .practice-card {
 
         width: 240px;
-
         height: 370px;
 
     }
 
-
-
     .card-orange {
 
         transform:
-
             translateX(-120px)
-
             rotate(-5deg);
 
     }
 
-
-
     .card-green {
 
         transform:
-
             translateX(0)
-
             rotate(2deg);
 
     }
 
-
-
     .card-blue {
 
         transform:
-
             translateX(120px)
-
             rotate(5deg);
 
     }
 
 
+    /* FOOTER */
 
     footer {
 
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr auto;
 
-        gap: 40px;
+        gap: 20px;
+
+        padding: 24px 25px;
 
     }
 
+    .footer-text {
 
+        grid-column: 1;
+
+    }
 
     .footer-number {
 
-        text-align: left;
+        grid-column: 2;
+        grid-row: 1 / span 2;
+
+        text-align: right;
 
     }
 
 }
 
 
-
 /* =========================================================
-
    MOBILE
-
 ========================================================= */
 
 @media (max-width: 600px) {
@@ -2157,12 +2110,9 @@ footer {
     .navbar {
 
         height: 85px;
-
         padding: 0 20px;
 
     }
-
-
 
     .nav-logo {
 
@@ -2170,40 +2120,29 @@ footer {
 
     }
 
-
-
     .nav-links {
 
         gap: 12px;
 
     }
 
-
-
     .nav-links a {
 
         font-size: 9px;
-
         letter-spacing: 0.8px;
 
     }
 
-
-
     .hero {
 
         min-height: 80vh;
-
         padding-top: 85px;
 
     }
 
-
-
     .hero-title h1 {
 
         font-size: 17vw;
-
         letter-spacing: -4px;
 
     }
@@ -2217,9 +2156,7 @@ footer {
     .hero-message p:first-child {
 
         margin-bottom: 10px;
-
         font-size: 8px;
-
         letter-spacing: 1.2px;
 
     }
@@ -2245,7 +2182,6 @@ footer {
     .inspiration-list span {
 
         padding: 8px 10px;
-
         font-size: 11px;
 
     }
@@ -2256,91 +2192,61 @@ footer {
 
     }
 
-
-
     .orange-circle {
 
         width: 130px;
-
         height: 130px;
-
         left: 8%;
 
     }
 
-
-
     .orange-block {
 
         width: 100px;
-
         height: 160px;
-
         left: 5%;
 
     }
 
-
-
     .blue-block {
 
         width: 220px;
-
         height: 65px;
-
         right: 5%;
 
     }
 
-
-
     .green-circle {
 
         width: 60px;
-
         height: 60px;
-
         right: 15%;
 
     }
 
-
-
     .line-left {
 
         width: 130px;
-
         left: -8%;
-
         top: 82%;
 
     }
 
-
-
     .line-right {
 
         width: 130px;
-
         right: -8%;
-
         top: 10%;
 
     }
 
-
-
     .idea-section,
-
     .practice-section {
 
         padding-left: 25px;
-
         padding-right: 25px;
 
     }
-
-
 
     .idea-heading h2 {
 
@@ -2348,15 +2254,11 @@ footer {
 
     }
 
-
-
     .practice-question h2 {
 
         font-size: 45px;
 
     }
-
-
 
     .search-bar {
 
@@ -2364,89 +2266,78 @@ footer {
 
     }
 
-
-
     .card-area {
 
         height: 500px;
 
     }
 
-
-
     .practice-card {
 
         width: 210px;
-
         height: 330px;
 
     }
 
-
-
     .card-orange {
 
         transform:
-
             translateX(-55px)
-
             rotate(-7deg);
 
     }
 
-
-
     .card-blue {
 
         transform:
-
             translateX(55px)
-
             rotate(7deg);
 
     }
 
-
-
     .practice-card:hover.card-orange {
 
         transform:
-
             translateX(-55px)
-
             rotate(-9deg)
-
             translateY(-10px);
 
     }
-
-
 
     .practice-card:hover.card-blue {
 
         transform:
-
             translateX(55px)
-
             rotate(9deg)
-
             translateY(-10px);
 
     }
 
 
+    /* FOOTER */
 
     footer {
 
-        padding: 55px 25px;
+        padding: 22px 20px;
 
     }
 
+    .footer-logo {
 
+        font-size: 22px;
+
+    }
+
+    .footer-text {
+
+        font-size: 11px;
+        line-height: 1.35;
+
+    }
 
     .footer-number {
 
-        font-size: 110px;
+        font-size: 55px;
 
     }
 
